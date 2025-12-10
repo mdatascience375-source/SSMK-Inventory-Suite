@@ -2,3 +2,5 @@ flask
 flask_sqlalchemy
 flask_cors
 PyJWT
+gunicorn
+psycopg2-binary
