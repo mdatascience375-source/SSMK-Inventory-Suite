@@ -58,6 +58,7 @@ body {
   height: 200px;
   background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15), transparent);
   pointer-events: none;
+  z-index: 0;
 }
 
 .sidebar-header {
@@ -257,6 +258,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .card::before {
@@ -269,6 +271,8 @@ body {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .card:hover {
@@ -330,6 +334,16 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
   color: #f9fafb;
+  position: relative;
+  z-index: 1;
+}
+
+.stats-card,
+.stats-content,
+.card-label,
+.card-value {
+  position: relative;
+  z-index: 1;
 }
 
 .filter-row {
@@ -380,6 +394,8 @@ textarea {
   color: #e5e7eb;
   transition: all 0.2s ease;
   font-family: inherit;
+  position: relative;
+  z-index: 10;
 }
 
 input:focus,
@@ -417,6 +433,8 @@ textarea {
   color: #f9fafb;
   transition: all 0.2s ease;
   font-family: inherit;
+  position: relative;
+  z-index: 10;
 }
 
 .btn-xs {
@@ -465,6 +483,8 @@ button:disabled {
   overflow-x: auto;
   border-radius: 12px;
   border: 1px solid rgba(99, 102, 241, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .table {
@@ -569,6 +589,8 @@ button:disabled {
   top: -250px;
   left: -250px;
   animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
 @keyframes float {
