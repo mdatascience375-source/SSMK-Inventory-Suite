@@ -160,23 +160,6 @@ def login():
     )
     return jsonify({"token": token, "user": {"id": user.id, "username": user.username, "role": user.role}})
 
-@app.route("/", methods=["GET"])
-def health_check():
-    """Health check endpoint for Railway"""
-    return jsonify({
-        "status": "healthy",
-        "service": "SSMK Inventory API",
-        "version": "1.0.0"
-    }), 200
-
-@app.route("/health", methods=["GET"])
-def health():
-    """Alternative health check endpoint"""
-    return jsonify({"status": "ok"}), 200
-
-@app.route("/categories", methods=["POST"])
-@token_required
-@roles_required("admin")
 def create_category():
     data = request.json
     c = Category(name=data["name"], description=data.get("description", ""))
@@ -484,6 +467,4 @@ def sales_monthly():
 
 
 if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(debug=True)
